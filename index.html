@@ -648,6 +648,41 @@
       line-height: 1.55;
     }
 
+    /* Cụm liên hệ 2 số */
+    .contact-list {
+      display: flex;
+      flex-direction: column;
+      gap: 10px;
+      margin: 8px 0 12px;
+    }
+    .contact-item {
+      display: flex;
+      align-items: baseline;
+      justify-content: space-between;
+      gap: 12px;
+      background: rgba(0, 240, 255, 0.04);
+      border: 1px solid rgba(0, 240, 255, 0.12);
+      border-radius: 10px;
+      padding: 8px 12px;
+    }
+    .contact-name {
+      font-size: 13.5px;
+      color: #e2e8f0;
+      font-weight: 500;
+    }
+    .contact-phone {
+      font-family: var(--font-mono);
+      font-size: 15px;
+      color: var(--cyan);
+      text-decoration: none;
+      font-weight: 600;
+      letter-spacing: 0.5px;
+    }
+    .contact-phone:hover {
+      text-decoration: underline;
+      text-shadow: 0 0 10px var(--cyan);
+    }
+
     /* ====== MỤC HÌNH ẢNH TẠI TRƯỜNG ====== */
     .gallery-grid {
       display: grid;
@@ -887,7 +922,7 @@
         margin: 24px 0; 
       }
       .topbar { padding: 12px 14px; }
-      .brand-year { display: none; } /* Tối ưu diện tích thanh header */
+      .brand-year { display: none; }
       
       .date-badge {
         width: 100%;
@@ -917,6 +952,10 @@
       }
       .count-num {
         margin-bottom: 2px;
+      }
+
+      .contact-item {
+        padding: 10px 12px;
       }
 
       .door {
@@ -1125,14 +1164,25 @@
           <p data-en="Ton Duc Thang University (TDTU), District 7, HCMC">Đại học Tôn Đức Thắng, 19 Nguyễn Hữu Thọ, Quận 7</p>
         </div>
 
-        <!-- Số điện thoại liên hệ -->
+        <!-- Số điện thoại liên hệ: Cả Luân và Má nhỏ Nghi -->
         <div class="detail">
           <div class="icon-box">
             <svg viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72 12.84 12.84 0 0 0 .7 2.81 2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45 12.84 12.84 0 0 0 2.81.7A2 2 0 0 1 22 16.92z"></path></svg>
           </div>
           <small data-en="Direct Contact">Liên hệ khi đến trường</small>
-          <strong><a href="tel:0365326142" style="color:var(--cyan);text-decoration:none">0365 326 142</a></strong>
-          <p data-en="Call or text Luân when you arrive">Gọi hoặc nhắn tin cho Luân ngay khi tới cổng nha.</p>
+          
+          <div class="contact-list">
+            <div class="contact-item">
+              <span class="contact-name" data-en="Minh Luân:">Minh Luân:</span>
+              <a class="contact-phone" href="tel:0365326142">0365 326 142</a>
+            </div>
+            <div class="contact-item">
+              <span class="contact-name" data-en="Má nhỏ (Nghi):">Má nhỏ (Nghi):</span>
+              <a class="contact-phone" href="tel:0826990618">0826 990 618</a>
+            </div>
+          </div>
+
+          <p data-en="Call or text when you arrive at the gate!">Gọi hoặc nhắn tin cho Luân hoặc Má nhỏ ngay khi tới cổng nha.</p>
         </div>
 
         <!-- Lời nhắn gửi -->
@@ -1375,7 +1425,7 @@
     // Link thêm sự kiện vào Google Calendar: 09:30 - 12:00 ngày 23/10/2026
     const calBtn = document.getElementById('cal-link');
     const calTitle = encodeURIComponent('Lễ Tốt Nghiệp - Nguyễn Minh Luân');
-    const calDetails = encodeURIComponent('Chung vui ngày tốt nghiệp cùng Nguyễn Minh Luân tại Sảnh Tòa A, ĐH Tôn Đức Thắng (Liên hệ: 0365 326 142)');
+    const calDetails = encodeURIComponent('Chung vui ngày tốt nghiệp cùng Nguyễn Minh Luân tại Sảnh Tòa A, ĐH Tôn Đức Thắng (Liên hệ: 0365 326 142 - Luân / 0826 990 618 - Má nhỏ Nghi)');
     const calLocation = encodeURIComponent('Đại học Tôn Đức Thắng, 19 Nguyễn Hữu Thọ, Tân Phong, Quận 7, TP.HCM');
     calBtn.href = `https://calendar.google.com/calendar/render?action=TEMPLATE&text=${calTitle}&dates=20261023T023000Z/20261023T050000Z&details=${calDetails}&location=${calLocation}`;
 
